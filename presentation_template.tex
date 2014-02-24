@@ -1,0 +1,103 @@
+\documentclass{beamer}
+%\documentclass[draft]{beamer}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\mode<presentation>
+{
+  \usetheme{cambridge}
+  \setbeamercovered{transparent}
+}
+
+% If you want the PDF to open in full screen by default
+\hypersetup{pdfpagemode=FullScreen}
+
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{subfigure}
+
+
+% colours
+\newcommand{\textred}[1]{\alert{#1}}
+\newcommand{\textblue}[1]{\buffer{#1}}
+
+% Spaced itemize environment 
+\newenvironment{unpacked_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{10pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+% Title and authors
+\title{Title}
+\author[author]{{author}}
+\institute[institute]{\url{email}}
+\date{date}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+% You might wish to add the option [pausesections]
+\end{frame}
+
+
+
+\section{First section}
+
+\begin{frame}[t]{First frame}
+
+text 
+
+\begin{itemize}
+\item normal item
+\item normal item
+\end{itemize}
+
+\begin{unpacked_itemize}
+\item unpacked item
+\item unpacked item
+\end{unpacked_itemize}
+\end{frame}
+
+\begin{frame}[t]{Second frame}
+text
+
+\begin{block}{title}
+block
+\end{block}
+
+\begin{exampleblock}{title}
+example block
+\end{exampleblock}
+\end{frame}
+
+\section{Second section}
+\begin{frame}{Third frame}
+Shared text
+
+\only<1>{
+Text 1
+}
+\only<2>{
+Text 1
+
+Text 2
+}
+\only<3>{
+Text 1
+
+Text 2
+
+Text 3
+}
+\end{frame}
+
+\end{document}

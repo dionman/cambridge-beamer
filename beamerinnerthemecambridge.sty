@@ -7,7 +7,7 @@
 \newlength{\cam@inner@pitch} \setlength{\cam@inner@pitch}{0.0333333\paperheight} 
 
 % The University logo
-\pgfdeclareimage[height=2\cam@inner@pitch]{beamertitlelogocambridge}{uc-cmyk}
+\pgfdeclareimage[height=2\cam@inner@pitch]{beamertitlelogocambridge}{logos/uc-cmyk}
 
 \mode<presentation>
 
@@ -72,7 +72,9 @@
   %
   % Insert titlegraphic
   \vskip2\cam@inner@pitch
-  {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+%\hskip5pt\pgfuseimage{beamertitlelogocambridge_group}
+\par}
   \vskip2\cam@inner@pitch
   \vskip0pt plus 1filll
   %
@@ -97,6 +99,7 @@
     \hfill\usebeamerfont{date}\insertdate
   \end{beamercolorbox}
   \vskip-\cam@inner@pitch % HACK: Not sure why we need this?
+  \vspace{8mm}
 }
 
 % Part page
@@ -289,6 +292,7 @@
 \defbeamertemplate*{block end}{cambridge theme}  
 {\end{beamercolorbox}\vskip\smallskipamount}
 
+
 \defbeamertemplate*{block alerted begin}{cambridge theme}
 {
   \par\vskip\medskipamount%
@@ -320,10 +324,10 @@
   {\ifbeamercolorempty[bg]{block body example}{}{\nointerlineskip\vskip-0.5pt}}%
   \usebeamerfont{block body example}%
   \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body example}%
-    \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+    \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{\vskip-0.5ex}%
 }
 \defbeamertemplate*{block example end}{cambridge theme}
-{\end{beamercolorbox}\vskip\smallskipamount}
+{\vskip-0.5ex\end{beamercolorbox}\vskip\smallskipamount}
 
 % Theorems
 
@@ -352,6 +356,9 @@
 \mode<all>
 
 % Default title graphic is uni logo.
-\titlegraphic{\pgfuseimage{beamertitlelogocambridge}}
+\titlegraphic{
+    %\pgfuseimage{beamertitlelogooxford} \hskip 3pt
+	\pgfuseimage{beamertitlelogocambridge}
+}
 
 % vim:sw=2:ts=2:et

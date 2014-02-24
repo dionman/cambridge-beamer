@@ -16,7 +16,7 @@
 \setbeamercolor{progress}{fg=structure.fg!50}
 
 % The University logo
-\pgfdeclareimage[height=1.5\cam@outer@pitch]{beamerlogocambridge}{uc-rev-cmyk}
+\pgfdeclareimage[height=1.75\cam@outer@pitch]{beamerlogocambridge}{logos/uc-rev-cmyk}
 
 \mode<presentation>
 
@@ -78,14 +78,20 @@
 \defbeamertemplate*{frametitle}{cambridge theme}
 {%
   \vskip-1pt % HACK: Removes a bright line at the top of the page.
-  \begin{beamercolorbox}[wd=\paperwidth,ht=4.5\cam@outer@pitch,dp=\cam@outer@pitch,leftskip=2\cam@outer@pitch,sep=0pt]{palette primary}%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2\cam@outer@pitch,dp=\cam@outer@pitch,leftskip=2\cam@outer@pitch,sep=0pt]{palette primary}%
     \begin{beamercolorbox}[ht=0pt,sep=0pt]{}%
       \usebeamerfont{frametitle}\insertframetitle
+\hfill
+\usebeamerfont{logo in head/foot}\insertlogo
+%\hskip5pt
+%\pgfuseimage{beamerlogocambridge_group}
     \end{beamercolorbox}
   \end{beamercolorbox}%
+  \vskip-0.5ex
   \nointerlineskip
   \begin{beamercolorbox}[wd=\paperwidth,dp=0.5\cam@outer@pitch]{lower separation line head}%
   \end{beamercolorbox}%
+  \vskip-1ex
 }
 
 \defbeamertemplate*{footprogress}{cambridge theme}
@@ -115,8 +121,8 @@
     % There was no frame title
   \else
     % There was a frame title, typeset the counterpart to the frame title (this is a hack).
-    \begin{beamercolorbox}[sep=0.5\cam@outer@pitch,leftskip=1.5\cam@outer@pitch,rightskip=0.5\cam@outer@pitch]{palette secondry}%
-      \usebeamerfont{logo in head/foot}\insertlogo
+    \begin{beamercolorbox}[sep=0.25\cam@outer@pitch,leftskip=1.5\cam@outer@pitch,rightskip=0.5\cam@outer@pitch]{palette secondry}%
+      %\usebeamerfont{logo in head/foot}\insertlogo
       \hfill
       \hbox{\usebeamertemplate{footprogress}}
     \end{beamercolorbox}%
@@ -186,7 +192,9 @@
 
 \ifbeamertemplateempty{logo}{%
    \setbeamertemplate{logo}{%
-      \pgfuseimage{beamerlogocambridge}
+      %\pgfuseimage{beamerlogooxford} \hskip 3pt
+      \pgfuseimage{beamerlogocambridge} 
+   	  \vskip -3pt
    }
 }{%
    % Do nothing if logo is set.
